@@ -1,9 +1,6 @@
-.header {
-  font-size: 40px;
-  color: white;
-  padding: 25px;
+#root {
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1600px;
 }
 
 

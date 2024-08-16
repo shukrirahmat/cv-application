@@ -10,7 +10,7 @@
 }
 
 #root {
-  max-width: 1600px;
+  max-width: 1600px; /* temporary */
   margin: 0 auto;
   font-family: "Moderustic", sans-serif;
 }
@@ -18,22 +18,31 @@
 .header {
   font-family: 'BowlbyOneSc', sans-serif;
   color: white;
-  border: white 2px solid;
+  border: white 2px solid; /* temporary */
   font-size: 40px;
 }
 
 .maincontent {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  height: 1000px;
   gap: 20px;
   margin-top: 25px;
+  align-items: baseline; /* temporary */
 }
 
-.maincontent div {
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.editor div{
+  min-height: 300px; /* temporary */
   background-color: white;
 }
 
-
-
+.viewer {
+  min-height: 800px; /* temporary */
+  background-color: white;
+}
 

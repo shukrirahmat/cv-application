@@ -1,8 +1,11 @@
+import Editor from "./Editor";
+import Viewer from "./Viewer";
+
 function MainContent() {
   return (
     <div className="maincontent">
-      <div>editor</div>
-      <div>viewer</div>
+      <Editor/>
+      <Viewer/>
     </div>
   );
 }

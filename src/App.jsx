@@ -1,15 +1,16 @@
-import { useState } from 'react'
-import Header from './Header'
-import './App.css'
+import Header from './Header';
+import MainContent from './MainContent'; 
+import './App.css';
+
 
 function App() {
 
   return (
     <>
-      <Header />
-      <div className='maincontent'></div>
+      <Header text='CV BUILDER'/>
+      <MainContent />
     </>
   )
 }
 
-export default App
+export default App;

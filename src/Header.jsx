@@ -1,5 +1,5 @@
-function Header() {
-    return <div className="header"><b>CV EDITOR</b></div>
+function Header({text}) {
+    return <div className="header">{text}</div>
 }
 
 export default Header;

@@ -18,7 +18,6 @@
 .header {
   font-family: 'BowlbyOneSc', sans-serif;
   color: white;
-  border: white 2px solid; /* temporary */
   font-size: 40px;
 }
 
@@ -27,7 +26,6 @@
   grid-template-columns: 2fr 3fr;
   gap: 20px;
   margin-top: 25px;
-  align-items: baseline; /* temporary */
 }
 
 .editor {
@@ -36,13 +34,39 @@
   gap: 20px;
 }
 
-.editor div{
-  min-height: 300px; /* temporary */
+.editor > div {
   background-color: white;
+  padding: 10px;
 }
 
 .viewer {
+  padding: 10px;
   min-height: 800px; /* temporary */
   background-color: white;
+}
+
+.toggler {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.editor > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.toggler > button {
+  min-width: 80px;
+  border: none;
+  text-decoration: none;
+  background-color: slateblue;
+  font-family: inherit;
+  color: white;
+}
+
+.toggler > button:hover {
+  background-color: rgb(86, 70, 185);
 }
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import GeneralInfoForm from "./GeneralInfoForm";
 
 function EditToggle({title, children}) {
   const [showForm, setShowForm] = useState(false);
@@ -23,7 +24,7 @@ function Editor() {
   return (
     <div className="editor">
       <EditToggle title='GENERAL INFORMATION'>
-        <form>THIS IS FORM</form>
+        <GeneralInfoForm />
       </EditToggle>
       <EditToggle title='EDUCATIONAL EXPERIENCE'>
         <form>THIS IS FORM</form>

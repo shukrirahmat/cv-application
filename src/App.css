@@ -49,6 +49,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .editor > div {
@@ -57,16 +58,32 @@
   gap: 20px;
 }
 
-.toggler > button {
+.editor button {
   min-width: 80px;
   border: none;
   text-decoration: none;
   background-color: slateblue;
   font-family: inherit;
   color: white;
+  padding: 5px 20px;
 }
 
-.toggler > button:hover {
+.editor button:hover {
   background-color: rgb(86, 70, 185);
 }
 
+.editor form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.editor form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor form button {
+  margin-top: 10px;
+  align-self: flex-end;
+}

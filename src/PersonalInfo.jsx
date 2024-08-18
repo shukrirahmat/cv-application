@@ -1,8 +1,10 @@
 import phoneIcon from "./assets/images/phone.svg";
 import emailIcon from "./assets/images/email.svg";
+import { useState } from "react";
 
 function PersonalInfo() {
-  const data = {
+
+  const initialdata = {
     firstName: "John",
     lastName: "Doe",
     email: "john_doe@gmail.com",
@@ -11,27 +13,90 @@ function PersonalInfo() {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   };
 
+  const [isEdit, setIsEdit] = useState(false);
+  const [data, setData] = useState(initialdata);
+  const [revertData, setRevertData] = useState(initialdata);
+
+  function handleChange(e) {
+    const newData = {...data, [e.target.name] : e.target.value};
+    setData(newData);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setRevertData({...data});
+    setIsEdit(false);
+  }
+
+  function handleClear(e) {
+    e.preventDefault();
+    const emptyData = {firstName:"", lastName:"", email:"", phone:"", about:""};
+    setData(emptyData);
+  }
+
+  function handleRevert(e) {
+    e.preventDefault();
+    setData({...revertData});
+    setIsEdit(false)
+  }
+
+  const form = (
+    <form className="personalinfoform" onSubmit={handleSubmit}>
+      <label>
+        First Name
+        <input type="text" name="firstName" onChange={handleChange} value={data.firstName}/>
+      </label>
+      <label>
+        Last Name 
+        <input type="text" name="lastName" onChange={handleChange} value={data.lastName}/>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" onChange={handleChange} value={data.email}/>
+      </label>
+      <label>
+        Phone Number 
+        <input type="tel" name="phone" onChange={handleChange} value={data.phone}/>
+      </label>
+      <label className="aboutbox">
+        About You
+        <textarea value={data.about} name="about" onChange={handleChange} />
+      </label>
+      <div className="btncontainer">
+        <button onClick={handleClear}>CLEAR</button>
+        <button onClick={handleRevert}>CANCEL</button>
+        <button type="submit">SAVE</button>
+      </div>
+    </form>
+  );
+
+  const results = (
+    <div className="sectiondata">
+      <p className="name">
+        {data.firstName} {data.lastName}
+      </p>
+      <div className="contact">
+        {data.email !== "" && (<p key='email'>
+          <img className="icon" src={emailIcon} alt="email" /> {data.email}
+        </p>)}
+        {data.phone !=="" && (<p key='phone'>
+          <img className="icon" src={phoneIcon} alt="phone" /> {data.phone}
+        </p>)}
+      </div>
+      <p className="about">{data.about}</p>
+    </div>
+  );
+
   return (
     <div className="personalinfo">
       <div className="sectionhead">
         <p>PERSONAL INFO</p>
-        <button>EDIT</button>
+        <button disabled={isEdit} onClick={() => setIsEdit(true)}>
+          EDIT
+        </button>
       </div>
       <hr></hr>
-      <div className="sectiondata">
-        <p className="name">
-          {data.firstName} {data.lastName}
-        </p>
-        <div className="contact">
-          <p>
-            <img className="icon" src={emailIcon} alt="email" /> {data.email}
-          </p>
-          <p>
-            <img className="icon" src={phoneIcon} alt="phone" /> {data.phone}
-          </p>
-        </div>
-        <p className="about">{data.about}</p>
-      </div>
+      {isEdit ? form : results}
     </div>
   );
 }

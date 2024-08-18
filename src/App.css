@@ -4,15 +4,17 @@
 }
 
 @font-face {
-  font-family: "Moderustic";
-  src: url(assets/fonts/Moderustic-Regular.ttf),
-  url(assets/fonts/Moderustic-Bold.ttf);
+  font-family: "Lato";
+  src: url(assets/fonts/Lato-Regular.ttf),
+  url(assets/fonts/Lato-Bold.ttf),
+  url(assets/fonts/Lato-Italic.ttf),
+  url(assets/fonts/Lato-BoldItalic.ttf);
 }
 
 #root {
   max-width: 900px; /* temporary */
   margin: 0 auto;
-  font-family: "Moderustic", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 .header {
@@ -40,7 +42,7 @@
   color: darkslateblue;
 }
 
-.sectionhead button {
+button {
   min-width: 80px;
   padding: 5px 20px;
   border: none;
@@ -54,8 +56,13 @@
   border: 1px solid darkslateblue;
 }
 
-.sectionhead button:hover {
+button:hover {
   background-color: darkslateblue;
+}
+
+.sectionhead button:disabled {
+  opacity: 0.4;
+  background-color: slateblue;
 }
 
 .sectiondata {
@@ -88,3 +95,45 @@
 .icon {
   width: 20px;
 }
+
+.personalinfoform {
+  margin-top: 20px;
+  background-color:gainsboro;
+  padding: 20px;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+}
+
+.personalinfoform label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.personalinfoform input {
+  font-size: 18px;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+.aboutbox {
+  grid-column: 1/-1;
+}
+
+.aboutbox textarea {
+  min-height: 100px;
+  font-size: 18px;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+.btncontainer {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+
+

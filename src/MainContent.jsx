@@ -1,11 +1,10 @@
-import Editor from "./Editor";
-import Viewer from "./Viewer";
+import PersonalInfo from "./PersonalInfo";
 
 function MainContent() {
+
   return (
     <div className="maincontent">
-      <Editor/>
-      <Viewer/>
+      <PersonalInfo/>
     </div>
   );
 }

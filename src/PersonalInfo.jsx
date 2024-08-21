@@ -14,29 +14,29 @@ function PersonalInfo() {
   };
 
   const [isEdit, setIsEdit] = useState(false);
-  const [data, setData] = useState(initialdata);
-  const [revertData, setRevertData] = useState(initialdata);
+  const [data, setData] = useState({...initialdata});
+  const [editData, setEditData] = useState({...initialdata});
 
   function handleChange(e) {
-    const newData = {...data, [e.target.name] : e.target.value};
-    setData(newData);
+    const newData = {...editData, [e.target.name] : e.target.value};
+    setEditData(newData);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    setRevertData({...data});
+    setData({...editData});
     setIsEdit(false);
   }
 
   function handleClear(e) {
     e.preventDefault();
     const emptyData = {firstName:"", lastName:"", email:"", phone:"", about:""};
-    setData(emptyData);
+    setEditData(emptyData);
   }
 
   function handleRevert(e) {
     e.preventDefault();
-    setData({...revertData});
+    setEditData({...data});
     setIsEdit(false)
   }
 
@@ -44,23 +44,23 @@ function PersonalInfo() {
     <form className="personalinfoform" onSubmit={handleSubmit}>
       <label>
         First Name
-        <input type="text" name="firstName" onChange={handleChange} value={data.firstName}/>
+        <input type="text" name="firstName" onChange={handleChange} value={editData.firstName}/>
       </label>
       <label>
         Last Name 
-        <input type="text" name="lastName" onChange={handleChange} value={data.lastName}/>
+        <input type="text" name="lastName" onChange={handleChange} value={editData.lastName}/>
       </label>
       <label>
         Email
-        <input type="email" name="email" onChange={handleChange} value={data.email}/>
+        <input type="email" name="email" onChange={handleChange} value={editData.email}/>
       </label>
       <label>
         Phone Number 
-        <input type="tel" name="phone" onChange={handleChange} value={data.phone}/>
+        <input type="tel" name="phone" onChange={handleChange} value={editData.phone}/>
       </label>
       <label className="aboutbox">
         About You
-        <textarea value={data.about} name="about" onChange={handleChange} />
+        <textarea value={editData.about} name="about" onChange={handleChange} />
       </label>
       <div className="btncontainer">
         <button onClick={handleClear}>CLEAR</button>

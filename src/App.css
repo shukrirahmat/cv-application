@@ -25,9 +25,11 @@
 
 .maincontent {
   background-color: white;
-  min-height: 900px;
   margin-top: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .sectionhead {
@@ -38,8 +40,9 @@
 }
 
 .sectionhead p {
-  font-size: 14px;
+  font-size: 12px;
   color: darkslateblue;
+  font-weight: bold;
 }
 
 button {
@@ -136,4 +139,24 @@ button:hover {
   gap: 20px;
 }
 
+.course {
+  font-size: 20px;
+  font-weight: bold;
+  color: darkslateblue;
+}
 
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.schoolndate {
+  display: flex;
+  flex-direction: row;
+  gap: 20px
+}
+
+.educationalexp .sectiondata {
+  gap: 20px;
+}

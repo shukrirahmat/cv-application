@@ -160,3 +160,74 @@ button:hover {
 .educationalexp .sectiondata {
   gap: 20px;
 }
+
+.educationalexp .editor {
+  margin-top: 20px;
+  background-color:gainsboro;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addedubutton {
+  align-self: center;
+}
+
+.edulist {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.eduheader {
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr 2fr;
+}
+
+.eduheader p {
+  font-size: 12px;
+}
+
+.eduitem {
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr 2fr;
+}
+
+.edulist button {
+  justify-self: center;
+}
+
+.edulist hr {
+  margin: 2px 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.eduform {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.eduform button {
+  align-self: center;
+}
+
+.eduform .inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+}
+
+.eduform label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.eduform input {
+  font-size: 18px;
+  padding: 5px 10px;
+  font-family: inherit;
+}

@@ -21,10 +21,15 @@ function EducationalExp() {
   ];
 
   const [formOpen, setFormOpen] = useState(false);
-  const [datas, setDatas] = useState(initialdata);
+  const [datas, setDatas] = useState(initialdata.slice());
+  const [editDatas, setEditDatas] = useState(initialdata.slice())
   const [education, setEducation] = useState({school:"-", course:"-", start:"-", end:"-"});
+  const [isEdit, setIsEdit] = useState(false);
 
-  const isEdit = true;
+  function handleEditMode() {
+    setIsEdit(true);
+    setFormOpen(false);
+  }
 
   function handleFormChange(e) {
     const newEducation = {...education, [e.target.name] : e.target.value};
@@ -33,16 +38,33 @@ function EducationalExp() {
 
   function handleAddEducation(e) {
     e.preventDefault();
-    const listCopy = datas.slice();
+    const listCopy = editDatas.slice();
     educationId++;
     listCopy.push({...education,id: educationId});
-    setDatas(listCopy);
+    setEditDatas(listCopy);
     setFormOpen(false);
   }
 
   function handleOpenForm() {
     setFormOpen(true);
     setEducation({school:"-", course:"-", start:"-", end:"-"})
+  }
+
+  function handleRemove(id) {
+    const newDatas = editDatas.filter((data) => data.id !== id);
+    setEditDatas(newDatas);
+  }
+
+  function handleUpdateData() {
+    const newDatas = editDatas.slice();
+    setDatas(newDatas);
+    setIsEdit(false);
+  }
+
+  function handleRevertData() {
+    const revertDatas = datas.slice();
+    setEditDatas(revertDatas);
+    setIsEdit(false);
   }
 
   const results = (
@@ -98,19 +120,24 @@ function EducationalExp() {
           <p></p>
         </div>
         <hr></hr>
-        {datas.map((data) => {
+        {editDatas.map((data) => {
           return (
             <div className="eduitem" key={data.id}>
               <p>{data.course}</p>
               <p>{data.school}</p>
               <p>{data.start}</p>
               <p>{data.end}</p>
-              <button>REMOVE</button>
+              <button onClick={() => handleRemove(data.id)}>REMOVE</button>
             </div>
           );
         })}
       </div>
       {formOpen? form : (<button className="addedubutton" onClick={handleOpenForm}>ADD</button>) }
+      <hr></hr>
+      <div className="btncontainer">
+        <button onClick={handleRevertData}>CANCEL</button>
+        <button onClick={handleUpdateData}>SAVE</button>
+      </div>
     </div>
   );
 
@@ -118,7 +145,7 @@ function EducationalExp() {
     <div className="educationalexp">
       <div className="sectionhead">
         <p>EDUCATIONAL EXPERIENCE</p>
-        <button>EDIT</button>
+        <button onClick={handleEditMode} disabled={isEdit}>EDIT</button>
       </div>
       <hr></hr>
       {isEdit ? editor : results}

@@ -1,5 +1,6 @@
 import PersonalInfo from "./PersonalInfo";
 import EducationalExp from "./EducationalExp";
+import PracticalExp from "./PracticalExp";
 
 function MainContent() {
 
@@ -7,6 +8,7 @@ function MainContent() {
     <div className="maincontent">
       <PersonalInfo/>
       <EducationalExp/>
+      <PracticalExp/>
     </div>
   );
 }

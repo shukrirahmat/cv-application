@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {format} from "date-fns";
 
 let educationId = 2;
 
@@ -8,22 +9,22 @@ function EducationalExp() {
       id: 1,
       school: "Hampden College",
       course: "Masters in Greek Literature",
-      start: 2020,
-      end: 2021,
+      start: new Date(2020,6,1),
+      end: new Date(2021,6,1),
     },
     {
       id: 2,
       school: "OSSU University",
       course: "Bachelors in Computer Science",
-      start: 2021,
-      end: 2024,
+      start: new Date(2021,9,20),
+      end: new Date(2021,9,20),
     },
   ];
 
   const [formOpen, setFormOpen] = useState(false);
   const [datas, setDatas] = useState(initialdata.slice());
   const [editDatas, setEditDatas] = useState(initialdata.slice())
-  const [education, setEducation] = useState({school:"-", course:"-", start:"-", end:"-"});
+  const [education, setEducation] = useState({school:"-", course:"-", start:null, end:null});
   const [isEdit, setIsEdit] = useState(false);
 
   function handleEditMode() {
@@ -47,7 +48,7 @@ function EducationalExp() {
 
   function handleOpenForm() {
     setFormOpen(true);
-    setEducation({school:"-", course:"-", start:"-", end:"-"})
+    setEducation({school:"-", course:"-", start:null, end:null})
   }
 
   function handleRemove(id) {
@@ -76,7 +77,7 @@ function EducationalExp() {
             <div className="schoolndate">
               <p>{data.school}</p>
               <p>
-                {data.start} - {data.end}
+                {data.start === null? '' : format(data.start, 'dd/MM/yy')} - {data.end === null? '' : format(data.end, 'dd/MM/yy')}
               </p>
             </div>
           </div>
@@ -97,12 +98,12 @@ function EducationalExp() {
           <input type="text" name="school" onChange={handleFormChange}/>
         </label>
         <label>
-          Start Year
-          <input type="number" name="start" min="1000" max={new Date().getFullYear()} onChange={handleFormChange}/>
+          Start Date
+          <input type="date" name="start" onChange={handleFormChange}/>
         </label>
         <label>
-          End Year
-          <input type="number" name="end" min="1000" max={new Date().getFullYear()} onChange={handleFormChange}/>
+          End Date
+          <input type="date" name="end" onChange={handleFormChange}/>
         </label>
       </div>
       <button type="submit">ADD</button>
@@ -125,8 +126,8 @@ function EducationalExp() {
             <div className="eduitem" key={data.id}>
               <p>{data.course}</p>
               <p>{data.school}</p>
-              <p>{data.start}</p>
-              <p>{data.end}</p>
+              <p>{data.start === null? '-' : format(data.start, 'dd/MM/yy')}</p>
+              <p>{data.end === null? '-' : format(data.end, 'dd/MM/yy')}</p>
               <button onClick={() => handleRemove(data.id)}>REMOVE</button>
             </div>
           );

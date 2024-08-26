@@ -77,7 +77,7 @@ function EducationalExp() {
             <div className="schoolndate">
               <p>{data.school}</p>
               <p>
-                {data.start === null? '' : format(data.start, 'dd/MM/yy')} - {data.end === null? '' : format(data.end, 'dd/MM/yy')}
+                ( {data.start === null? '' : format(data.start, 'dd/MM/yy')} - {data.end === null? '' : format(data.end, 'dd/MM/yy')} )
               </p>
             </div>
           </div>

@@ -121,6 +121,11 @@ button:hover {
   font-family: inherit;
 }
 
+.personalinfo .about {
+  padding-right: 150px;
+  text-align: justify;
+}
+
 .aboutbox {
   grid-column: 1/-1;
 }
@@ -139,19 +144,19 @@ button:hover {
   gap: 20px;
 }
 
-.course {
+.educationalexp .course {
   font-size: 20px;
   font-weight: bold;
   color: darkslateblue;
 }
 
-.education {
+.educationalexp .education {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.schoolndate {
+.educationalexp .schoolndate {
   display: flex;
   flex-direction: row;
   gap: 20px
@@ -171,63 +176,101 @@ button:hover {
   gap: 10px;
 }
 
-.addedubutton {
+.educationalexp .addedubutton {
   align-self: center;
 }
 
-.edulist {
+.educationalexp .edulist {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.eduheader {
+.educationalexp .eduheader {
   display: grid;
   grid-template-columns: 3fr 3fr 1fr 1fr 2fr;
 }
 
-.eduheader p {
+.educationalexp .eduheader p {
   font-size: 12px;
 }
 
-.eduitem {
+.educationalexp .eduitem {
   display: grid;
   grid-template-columns: 3fr 3fr 1fr 1fr 2fr;
 }
 
-.edulist button {
+.educationalexp .edulist button {
   justify-self: center;
 }
 
-.editor hr {
+.educationalexp .editor hr {
   margin: 2px 0;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.eduform {
+.educationalexp .eduform {
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
-.eduform button {
+.educationalexp .eduform button {
   align-self: center;
 }
 
-.eduform .inputs {
+.educationalexp .eduform .inputs {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px 40px;
 }
 
-.eduform label {
+.educationalexp .eduform label {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.eduform input {
+.educationalexp .eduform input {
   font-size: 16px;
   padding: 5px 10px;
   font-family: inherit;
+}
+
+.practicalexp .sectiondata {
+  gap: 20px;
+}
+
+.practicalexp .title {
+  font-size: 20px;
+  font-weight: bold;
+  color: darkslateblue;
+}
+
+.practicalexp .job {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.practicalexp .companyndate {
+  display: flex;
+  flex-direction: row;
+  gap: 20px
+}
+
+.practicalexp .tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.practicalexp .editor {
+  margin-top: 20px;
+  background-color:gainsboro;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

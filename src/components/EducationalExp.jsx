@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {format} from "date-fns";
 
-let educationId = 2;
+let educationId = 5;
 
 function EducationalExp() {
   const initialdata = [
@@ -21,10 +21,12 @@ function EducationalExp() {
     },
   ];
 
+  const blankEducation = {school:"-", course:"-", start:null, end:null}
+
   const [formOpen, setFormOpen] = useState(false);
   const [datas, setDatas] = useState(initialdata.slice());
   const [editDatas, setEditDatas] = useState(initialdata.slice())
-  const [education, setEducation] = useState({school:"-", course:"-", start:null, end:null});
+  const [education, setEducation] = useState({...blankEducation});
   const [isEdit, setIsEdit] = useState(false);
 
   function handleEditMode() {
@@ -48,7 +50,7 @@ function EducationalExp() {
 
   function handleOpenForm() {
     setFormOpen(true);
-    setEducation({school:"-", course:"-", start:null, end:null})
+    setEducation({...blankEducation})
   }
 
   function handleRemove(id) {

@@ -27,6 +27,7 @@
   background-color: white;
   margin-top: 20px;
   padding: 20px;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -47,10 +48,11 @@
 
 button {
   min-width: 80px;
-  padding: 5px 20px;
+  padding: 5px 10px;
   border: none;
   background-color: slateblue;
   font-style: inherit;
+  font-size: 12px;
   color: white;
 }
 
@@ -188,7 +190,7 @@ button:hover {
 
 .educationalexp .eduheader {
   display: grid;
-  grid-template-columns: 3fr 3fr 1fr 1fr 2fr;
+  grid-template-columns: 4fr 3fr 1fr 1fr 1fr;
 }
 
 .educationalexp .eduheader p {
@@ -197,11 +199,15 @@ button:hover {
 
 .educationalexp .eduitem {
   display: grid;
-  grid-template-columns: 3fr 3fr 1fr 1fr 2fr;
+  grid-template-columns: 4fr 3fr 1fr 1fr 1fr;
+}
+
+.educationalexp .eduitem p{
+  font-size: 14px;
 }
 
 .educationalexp .edulist button {
-  justify-self: center;
+  align-self: baseline;
 }
 
 .educationalexp .editor hr {
@@ -265,6 +271,12 @@ button:hover {
   gap: 5px;
 }
 
+.practicalexp .tasks div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
 .practicalexp .editor {
   margin-top: 20px;
   background-color:gainsboro;
@@ -273,4 +285,94 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.practicalexp .joblist {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.practicalexp .joblistheader {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 3fr 1fr;
+}
+
+.practicalexp .joblistheader p {
+  font-size: 12px;
+}
+
+.practicalexp .joblistitem {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 3fr 1fr;
+}
+
+.practicalexp .joblistitem p {
+  font-size: 14px;
+}
+
+.practicalexp .joblistitem button{
+  align-self:baseline;
+}
+
+.practicalexp .joblisttasks div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.practicalexp .joblisttasks p {
+  font-size: 14px;
+}
+
+.practicalexp .editor hr {
+  margin: 2px 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.practicalexp .addjobbutton {
+  align-self: center;
+}
+
+.practicalexp .jobform {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.practicalexp .jobform button {
+  align-self: center;
+}
+
+.practicalexp .jobform .inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+}
+
+.practicalexp .jobform label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.practicalexp .jobform input {
+  font-size: 16px;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+.practicalexp .taskbox {
+  grid-column: 1/-1;
+}
+
+.practicalexp textarea {
+  min-height: 100px;
+  font-size: 16px;
+  padding: 5px 10px;
+  font-family: inherit;
+}
+
+.personalinfo, .educationalexp, .practicalexp {
+  min-height: 100px;
 }

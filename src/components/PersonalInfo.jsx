@@ -1,5 +1,5 @@
-import phoneIcon from "./assets/images/phone.svg";
-import emailIcon from "./assets/images/email.svg";
+import phoneIcon from "../assets/images/phone.svg";
+import emailIcon from "../assets/images/email.svg";
 import { useState } from "react";
 
 function PersonalInfo() {
